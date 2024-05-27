@@ -16,11 +16,16 @@ const login = () => {
   inquirer.prompt([{
     type: 'list',
       name: 'type',
-      message: 'Login Type',
-      choices: ['Google', 'GitHub', 'GitLab']
+      message: 'What\'s next?',
+      choices: ['Sign up', 'Login', 'Skip']
   }]).then(answer => {
     console.log('');
-    console.log('Opening browser at https://api.cloud.strapi.io/v1/auth/login/google?type=token&label=macbook-pro.home+%2F+MacOS&origin=http%3A%2F%2Flocalhost%3A4321%2Fcallback');
+    console.log('Opening browser at https://qa-strapi.us.auth0.com/activate?user_code=RCXN-KRCQ');
+    console.log('');
+
+    console.log('If a browser tab does not open automatically, please follow the next steps:');
+    console.log('1. Open this url in your device:');
+    console.log('2. Enter the following code: RCXN-KRCQ and confirm to login.');
     console.log('');
     setTimeout(() => { 
       console.log(chalk.green('Login successful'));
@@ -34,8 +39,16 @@ const login = () => {
 }
 
 const createAccount = () => {
-  console.log(`We can't find any auth credentials in your Strapi config`);
-  console.log(`Please log in or create a new account first`);
+  const bold = "font-weight: bold";
+  const normal = "font-weight: normal";
+
+  console.log(`We can't find any auth credentials in your Strapi config.`);
+  console.log(`Please log in or sign up.`);
+  console.log('');
+  console.log(`Create a ${chalk.bold('free account now')} and benefit from:`);
+  console.log(`- ${chalk.magentaBright('✦blazing-fast✦')} deployment for your project`);
+  console.log(`- ${chalk.blueBright('✦exclusive✦')} access to resources to make your project successful`);
+  console.log(`- an ${chalk.yellowBright('✦awesome✦')} community and full enjoyment of Strapi's ecosystem`);
   console.log('');
   setTimeout(login, 1500);     
 };
